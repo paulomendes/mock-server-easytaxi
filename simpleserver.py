@@ -23,8 +23,6 @@ class HTTPRequestHandler(BaseHTTPRequestHandler):
 		x0 = float(lat)
 		y0 = float(lng)
 
-		outfile = open("output\randomLatLong_NY.txt", "w")
-
 		for i in range(1,100):
 			u = float(random.random())
 			v = float(random.random())
@@ -40,7 +38,6 @@ class HTTPRequestHandler(BaseHTTPRequestHandler):
 			yLong = y + y0
 
 			taxis.append({"lat": xLat , "lng": yLong})
-			outfile.write (str(xLat) + "," + str(yLong) + '\n')
 		return taxis
 	def do_GET(self):
 		try:
