@@ -10,4 +10,16 @@ Usage
 python simpleserver.py <port> <ip>
 ```
 
+End-points
+----------
+
+```shel
+GET /api/gettaxis
+```
+
+Parameter | Type  | Description
+---|---|---
+`lat` | **float** | *Center latitude to plot taxi positions*
+`lng` | **float** | *Center longitude to plot taxi positions*
+
 Fork and enjoy it :D.
