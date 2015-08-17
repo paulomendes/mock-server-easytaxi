@@ -10,9 +10,6 @@ import random
 import sys
 import math
  
-class LocalData(object):
-	records = {}
- 
 class HTTPRequestHandler(BaseHTTPRequestHandler):
 	def randomTaxiPositionJson(self, lat, lng):
 		taxis = []
@@ -83,9 +80,6 @@ class SimpleHttpServer():
 
 	def waitForThread(self):
 		self.server_thread.join()
-
-	def addRecord(self, recordID, jsonEncodedRecord):
-		LocalData.records[recordID] = jsonEncodedRecord
 
 	def stop(self):
 		self.server.shutdown()
