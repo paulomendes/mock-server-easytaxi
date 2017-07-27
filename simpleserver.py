@@ -9,8 +9,18 @@ import cgi
 import random
 import sys
 import math
+import random
  
+
 class HTTPRequestHandler(BaseHTTPRequestHandler):
+
+	def randomTaxiDriverName(self):
+		drivers = ["Joe", "James", "Paul", "Lidia", "Joy", "Lisa", "May", "Zing", "Moe", "Homer"]
+		cars = ["BMW", "Hynday", "Toyota", "Ferrari", "GM", "Fiat"]
+		colors = ["Blue", "Green", "Red", "Silver", "Black"]
+
+		return {"driver_name": random.choice(drivers), "car_model": random.choice(cars), "color": random.choice(colors)}
+
 	def randomTaxiPositionJson(self, lat, lng):
 		taxis = []
 
@@ -34,7 +44,7 @@ class HTTPRequestHandler(BaseHTTPRequestHandler):
 			xLat  = x + x0
 			yLong = y + y0
 
-			taxis.append({"lat": xLat , "lng": yLong})
+			taxis.append({"lat": xLat , "lng": yLong, "driver_info": self.randomTaxiDriverName()})
 		return taxis
 	def do_GET(self):
 		try:
